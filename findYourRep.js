@@ -1,4 +1,5 @@
 var coordinates;
+var representativeName = "";
 var representativeEmail = "";
 var representativePic = "";
 
@@ -60,13 +61,14 @@ function findYourRepresentative() {
 			if (rep.elected_office == "MPP"){
 		  		representativeEmail = rep.email;
 		  		representativePic = rep.photo_url;
-		  		
-		  		var para1 = document.getElementById("p1");
-		  		para1.innerHTML = "Representative Email: " + representativeEmail;
-
-		  		var para1 = document.getElementById("p2");
-		  		para1.innerHTML = "Representative PhotoUrl: " + representativePic;
-
+		  		representativeName = rep.name;
+          var name = document.getElementById("p1");
+          name.innerHTML = "Representative Name: " + representativeName;
+		  		var email = document.getElementById("p2");
+		  		email.innerHTML = "Representative Email: " + representativeEmail;
+		  		var picture = document.createElement("img");
+          picture.src = representativePic.toString();
+          document.getElementById("pic").appendChild(picture);
 			}
 		});
 	} else {
