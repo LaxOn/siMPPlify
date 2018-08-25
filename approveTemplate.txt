@@ -1,0 +1,12 @@
+Dear MPP <mppName>,
+
+As your constituent in this riding, I’m writing to ask you to support <billLongName> when it comes up for debate. I approve of this bill because <reasons>.
+
+Your attention is greatly appreciated, and I look forward to receiving a response from you.
+
+Please support the Bill  becoming law. 
+
+Sincerely,
+<clientName>
+<address>
+<phone>
