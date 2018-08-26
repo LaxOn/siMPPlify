@@ -484,3 +484,8 @@ body {
 #success-image{
   width:400px;
 }
+
+#hide-me{
+  display: none;
+  visibility: hidden;
+}

@@ -21,7 +21,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -60,7 +60,7 @@
       </div>
     </section>
 
-    
+
 
     <section class="agree-or-disagree">
       <div class="container">
@@ -69,12 +69,89 @@
             <p id="agree-or-disagree">Do you agree or disagree with this Act?</p>
           </div>
           <div class = "col-md-6">
-            <button type="button" class="button-background" onclick="populateEmail(1)">Agree</button>
-            <button type="button" class="button-background" onclick="populateEmail(0)">Disagree</button>
+            <button type="button" class="button-background" onclick="showEmail(1)">Agree</button>
+            <button type="button" class="button-background" onclick="showEmail(0)">Disagree</button>
           </div>
         </div>
       </div>
     </section>
+
+<div id="hide-me">
+    <!-- Take Action -->
+  <div class="take-action">
+    <!-- ask katie -->
+    <h1 class="headings" id="take-action-title">TAKE ACTION</h1>
+
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-6" >
+        <div class="mpp-form-text">
+          <div class="mpp-custom-text">Write to your local Member of Provincial Parliament (MPP) to bring issues to their attention. Use our template or treat it as a jumping off point!</div>
+
+          <label id="client-name-label" class="take-action-box-label">Name</label><br>
+          <input id="client-name" type="text" name="clientName" required><br>
+          <label class="take-action-box-label">Email</label><br>
+          <input id="client-email"type="text" name="clientEmail" required><br>
+          <label class="take-action-box-label">Message</label><br>
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+        <!-- face changes -->
+        <div class="crop">
+          <img class="mpp-face" id="imageid" src="img/defaultmpp.jpeg">
+        </div>
+          <div id="mpp-info">
+            <div class="mppTitle">Your Member of<br>Provincial Parliament:</div>
+            <div class="mppMoreTitle" id="mppName"></div>
+          </div>
+      </div>
+
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <textarea id="custom-email"></textarea>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+     <div class="col-lg-2"></div>
+     <div class="col-lg-8">
+      <!-- changes -->
+      <label id="custom-email-guide">Dear MPP, I'm a small business owner of construction materials in the GTA. I'm concerned about how tariffs will impact trade across the border and the cost of goods...</label>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <div class="submit-btn">
+    <button type="button" class="button-background" data-toggle="modal" data-target="#submitModal" onclick="submitEmail()">Submit</button>
+  </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLongTitle">SUCCESS!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your letter to your MPP was sent. You should receive an email response within 14 days.</p>
+        <img src="img/success.png" id="success-image">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
     <!-- Footer -->
     <footer class="footer bg-light">
@@ -124,9 +201,12 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
+
+    <div id="map"></div>
+  <script src="findYourRep.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_Zkal7S_TNKKAhGs6FrwcyVEUx1ik91k&callback=initMap">
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="nodemailer.js"></script>
     <script>
     $(function() {
       // Bind Click event to the drop down navigation button
@@ -140,25 +220,58 @@
     </script>
 
     <script type="text/javascript">
-      function populateEmail(isApprove) {
+      function showEmail(isApprove) {
+        document.getElementById("hide-me").style.visibility="visible"
+        document.getElementById("hide-me").style.display="unset"
 
-       
-        // read the text file
-        // jsonify the file
-        // then send it to info
-        // then get email body
-
-         if (isApprove == 1) {
-            info.isApprove = 1;
-        } else {
-          info.isApprove = 0
-        }
-        // then put that in message
-
-        
+      let name = document.getElementById("mppName").innerHTML;
+      let fullName = name.split(',')[0];
+      let cName = document.getElementById("client-name").value;
+      let cEmail = document.getElementById("client-email").value;
+      let cMessage = document.getElementById("custom-email").value;
+      let emailInfo = {
+        isApprove: isApprove,
+        mppName: fullName,
+        billLongName: "An Act respecting the preparation of a climate change plan, providing for the wind down of the cap and trade program and repealing the Climate Change Mitigation and Low-carbon Economy Act, 2016",
+        billShortName: "Cap and Trade Cancellation Act",
+        clientName: cName,
+        clientEmail: cEmail,
+        mppEmail:"simpplify.ca@gmail.com",
+        text: cMessage  
       }
-      function sendEmail(info) {
-        sendMailTo(info)
+      $.post("./processEmailBody",emailInfo, function(data, status){
+        document.getElementById("custom-email").value = data
+        document.getElementById("custom-email").style.height = "400px"
+      });
+
+      }
+    </script>
+    <script type="text/javascript">
+      function submitEmail(info) {
+
+        let name = document.getElementById("mppName").innerHTML;
+        let fullName = name.split(',')[0];
+        let cName = document.getElementById("client-name").value;
+        let cEmail = document.getElementById("client-email").value;
+        let cMessage = document.getElementById("custom-email").value;
+
+        // if (typeof cName =="undefined" || cName.trim() =="" ||
+        //   typeof cEmail =="undefined" || cEmail.trim() =="") {
+        //   alert("Missing Name or Email parameter!")
+        //   return
+        // }
+
+        let emailInfo = {
+          mppName: fullName,
+          billLongName: "An Act respecting the preparation of a climate change plan, providing for the wind down of the cap and trade program and repealing the Climate Change Mitigation and Low-carbon Economy Act, 2016",
+          billShortName: "Cap and Trade Cancellation Act",
+          clientName: cName,
+          clientEmail: cEmail,
+          mppEmail:"simpplify.ca@gmail.com",
+          text: cMessage  
+        }
+         $.post("./sendMail",emailInfo, function(data, status){
+            });
       }
     </script>
 

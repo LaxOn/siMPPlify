@@ -36,46 +36,23 @@ const server = http.createServer(app)
 server.listen(port);
 console.log("Server started on localhost:" + port);
 
-// accepts post request to create js files
-app.post('/saveInfo',saveToText);
-
-app.get('/getInfo',getText);
-
-app.post('/sendMail',sendTheMail);
-
-app.post('/processEmailBody',processTheEmailBody);
+app.get('index.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+})
 
 
-function saveToText(req,res) {
-    console.log(req.params.json)
-    console.log(req.body)
+
+app.post('/sendMail',(req,res) => {
+    sendMailTo(req.body)
     res.status(200).send("good")
-    fs.writeFileSync('./data.js',req.params.json,'utf-8')
-    if (err)  return console.log(err);
-}
+});
 
-function getText(req,res) {
-    console.log(req.params.json)
-    console.log(req.body)
-    res.status(200).send("good")
-    fs.writeFileSync('./data.js',req.params.json,'utf-8')
-    if (err)  return console.log(err);
-}
+app.post('/processEmailBody',(req,res)=> {
+    res.status(200).send(getEmailTemplate(req.body))
+});
 
-function sendTheMail(req,res) {
-    console.log(req.params.json)
-    console.log(req.body)
-    res.status(200).send("good")
-    fs.writeFileSync('./data.js',req.params.json,'utf-8')
-    if (err)  return console.log(err);
-}
-function processTheEmailBody(req,res) {
-    console.log(req.params.json)
-    console.log(req.body)
-    res.status(200).send("good")
-    fs.writeFileSync('./data.js',req.params.json,'utf-8')
-    if (err)  return console.log(err);
-}
+
+
 
 
 
@@ -87,7 +64,7 @@ function processTheEmailBody(req,res) {
 
 function getEmailTemplate(info) {
     let template = ""
-    if (info.isApprove === 1) template = approveTemplate
+    if (info.isApprove == 1) template = approveTemplate
     else template = disapproveTemplate
     let resultTemplate = template.replace("<mppName>",info.mppName)
                         .replace("<billLongName>",info.billLongName)

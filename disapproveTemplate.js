@@ -11,9 +11,6 @@ Your attention is greatly appreciated, and I look forward to receiving a respons
 Please stop the Bill from becoming law. \n\
 \n\
 Sincerely,\n\
-<clientName>\n\
-<address>\n\
-<phone>"
-
+[insert name here]"
 
 

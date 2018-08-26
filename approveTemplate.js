@@ -7,6 +7,4 @@ Your attention is greatly appreciated, and I look forward to receiving a respons
 Please support the Bill  becoming law.\n\
 \n\
 Sincerely,\n\
-<clientName>\n\
-<address>\n\
-<phone>"
+<clientName>"

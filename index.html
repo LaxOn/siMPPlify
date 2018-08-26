@@ -284,7 +284,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="nodemailer.js"></script>
+  <!-- <script src="nodemailer.js"></script> -->
   <script>
     $(function() {
       // Bind Click event to the drop down navigation button
@@ -304,9 +304,16 @@
     let cName = document.getElementById("client-name").value;
     let cEmail = document.getElementById("client-email").value;
     let cMessage = document.getElementById("custom-email").value;
+
+
+        // if (typeof cName =="undefined" || cName.trim() =="" ||
+        //   typeof cEmail =="undefined" || cEmail.trim() =="") {
+        //   alert("Missing Name or Email parameter!")
+        //   return
+        // }
+        
     let emailInfo = {
       isApprove: 0,
-      isCustom:0,
       mppName: fullName,
       billLongName: "An Act respecting the preparation of a climate change plan, providing for the wind down of the cap and trade program and repealing the Climate Change Mitigation and Low-carbon Economy Act, 2016",
       billShortName: "Cap and Trade Cancellation Act",
@@ -315,9 +322,13 @@
       mppEmail:"simpplify.ca@gmail.com",
       text: cMessage  
     }
-    
-    sendMailTo(emailInfo);
+    $.post("./sendMail",emailInfo, function(data, status){
+        
+    });
+    // sendMailTo(emailInfo);
   }
+
+  function saveEmailInfo()
 </script>
 </body>
 
