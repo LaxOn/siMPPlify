@@ -241,7 +241,7 @@ li {
   margin-left: 20px;
 }
 
-.bg-light {
+.bg-color {
     background-color: #fffaee!important;
 }
 
@@ -250,5 +250,5 @@ li {
 }
 
 body {
-  background-color: #fffaee;
+  background-color: #ffffff;
 }
