@@ -51,7 +51,7 @@
           </div>
           <div class="col-md-10">
             <h1 class="bill-title">Cap and Trade Cancellation Act</h1>
-            <img src="img/tags.png">
+            <img src="img/tags.PNG">
             <h2 class="long-title">An Act respecting the preparation of a climate change plan, providing for the wind down of the cap and trade program and repealing the Climate Change Mitigation and Low-carbon Economy Act, 2016</h2>
             <p class="bill-summary">The Bill sets out the Cap and Trade Cancellation Act, 2018, which repeals the Climate Change Mitigation and Low-carbon Economy Act, 2016 and provides for various matters related to the wind down of the Cap and Trade Program. Under the Cap and Trade Cancellation Act, 2018, the Government is required to establish targets for reducing the amount of greenhouse gas emissions in Ontario.  The Minister of Environment, Conservation and Parks is required to prepare a climate change plan and to prepare progress reports in respect of the plan. <a href="https://www.ola.org/en/legislative-business/bills/parliament-42/session-1/bill-4">(Learn more...)</a></p>
             <p class="reading-stage">Stage: First Reading</p>
@@ -60,6 +60,8 @@
       </div>
     </section>
 
+    
+
     <section class="agree-or-disagree">
       <div class="container">
         <div class="row">
@@ -67,8 +69,8 @@
             <p id="agree-or-disagree">Do you agree or disagree with this Act?</p>
           </div>
           <div class = "col-md-6">
-            <button type="button" class="button-background">Agree</button>
-            <button type="button" class="button-background">Disagree</button>
+            <button type="button" class="button-background" onclick="populateEmail(1)">Agree</button>
+            <button type="button" class="button-background" onclick="populateEmail(0)">Disagree</button>
           </div>
         </div>
       </div>
@@ -124,6 +126,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="nodemailer.js"></script>
     <script>
     $(function() {
       // Bind Click event to the drop down navigation button
@@ -134,7 +137,29 @@
       });
 
       });
+    </script>
 
+    <script type="text/javascript">
+      function populateEmail(isApprove) {
+
+       
+        // read the text file
+        // jsonify the file
+        // then send it to info
+        // then get email body
+
+         if (isApprove == 1) {
+            info.isApprove = 1;
+        } else {
+          info.isApprove = 0
+        }
+        // then put that in message
+
+        
+      }
+      function sendEmail(info) {
+        sendMailTo(info)
+      }
     </script>
 
   </body>
