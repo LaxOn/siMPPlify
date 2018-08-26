@@ -15,7 +15,6 @@ const util = require('util');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( { extended: false }))
 
-//app.use('/api', apiRoutes);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -24,7 +23,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.static(path.join(__dirname)));
-
 
 app.get('', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -40,8 +38,6 @@ app.get('index.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 })
 
-
-
 app.post('/sendMail',(req,res) => {
     sendMailTo(req.body)
     res.status(200).send("good")
@@ -50,13 +46,6 @@ app.post('/sendMail',(req,res) => {
 app.post('/processEmailBody',(req,res)=> {
     res.status(200).send(getEmailTemplate(req.body))
 });
-
-
-
-
-
-
-
 
 
 
@@ -98,25 +87,3 @@ function sendMailTo(info) {
         console.log(err)
     });
 }
-
-
-//isNotCustom
-// we populate the message with the replacements
-// we send when submit
-
-//isCustom
-// send it 
-
-// let info ={
-//     isApprove: 0,
-//     isCustom:0,
-//     mppName: "Bryan L.",
-//     billLongName: "Bill to delegalize Zebra Mussel",
-//     billShortName: "Bill Zebra Mussel",
-//     clientName: "Client 1",
-//     clientEmail: "brmlacso@edu.uwaterloo.ca",
-//     mppEmail:"democracyyey@gmail.com",
-//     text: "textarea value"
-// }
-
-// sendMailTo(info2);
