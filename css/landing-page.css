@@ -128,3 +128,50 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), 
+       local('Roboto-Regular'), 
+       url(http://themes.googleusercontent.com/static/fonts/roboto/v11/2UX7WLTfW3W8TclTUvlFyQ.woff) 
+       format('woff');
+}
+
+.nav-item {
+  font-family: Roboto;
+}
+
+.nav-logo {
+  margin-left: 40px;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 1;
+}
+
+.nav-buttons{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.bg-light {
+    background-color: #fffaee!important;
+}
+
+.fa {
+  color: grey;
+}
+
