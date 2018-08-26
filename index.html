@@ -175,13 +175,12 @@
       <div class="col-lg-2">
         <!-- face changes -->
         <div class="crop">
-          <img class="mpp-face"  src="https://www.ola.org/sites/default/files/member/profile-photo/jessica_bell.jpg">
+          <img class="mpp-face" id="imageid" src="img/defaultmpp.jpeg">
         </div>
-        <div id="mpp-info">
-
-          <div class="mppTitle">Your Member of<br>Provincial Parliament:</div>
-          <div class="mppMoreTitle">Morneau, Bill<br>Finance Minister<br>MPP Toronto Centre</div>
-        </div>
+          <div id="mpp-info">             
+            <div class="mppTitle">Your Member of<br>Provincial Parliament:</div>
+            <div class="mppMoreTitle" id="mppName"></div>
+          </div>
       </div>
 
       <div class="col-lg-2"></div>
@@ -252,6 +251,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- Code for detecting the MPP of the user's district-->
+  <div id="map"></div>
+  <script src="findYourRep.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_Zkal7S_TNKKAhGs6FrwcyVEUx1ik91k&callback=initMap">
+  </script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

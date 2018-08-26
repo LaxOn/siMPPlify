@@ -2,6 +2,7 @@ var coordinates;
 var representativeName = "";
 var representativeEmail = "";
 var representativePic = "";
+var representativeDistrict = "";
 
 function initMap() {
     if (navigator && navigator.geolocation) {
@@ -20,6 +21,7 @@ function successCallback(myloc) {
     var MyLatlng = {lat: myloc.coords.latitude, lng: myloc.coords.longitude};
     var map = new google.maps.Map(document.getElementById('map'), {zoom: 50, center: MyLatlng})
     coordinates = MyLatlng;
+    findYourRepresentative();
 }
 
 // Create the XHR object.
@@ -54,7 +56,6 @@ function findYourRepresentative() {
   xhr.onload = function() {
   	// Begin accessing JSON data here
  	var data = JSON.parse(this.response);
- 	console.log(data.objects);
  	// Check that http request is successful
 	if (xhr.status >= 200 && xhr.status < 400) {
 		data.objects.forEach(rep => {
@@ -62,13 +63,12 @@ function findYourRepresentative() {
 		  		representativeEmail = rep.email;
 		  		representativePic = rep.photo_url;
 		  		representativeName = rep.name;
-          var name = document.getElementById("p1");
-          name.innerHTML = "Representative Name: " + representativeName;
-		  		var email = document.getElementById("p2");
-		  		email.innerHTML = "Representative Email: " + representativeEmail;
-		  		var picture = document.createElement("img");
-          picture.src = representativePic.toString();
-          document.getElementById("pic").appendChild(picture);
+          representativeDistrict = rep.district_name;           
+          var name = document.getElementById("mppName");
+          name.innerHTML = representativeName+", MPP "+representativeDistrict;          
+          document.getElementById("imageid").src = representativePic.toString();
+          //var email = document.getElementById("p2");
+          //email.innerHTML = "Representative Email: " + representativeEmail;
 			}
 		});
 	} else {
