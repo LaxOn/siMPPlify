@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -127,4 +129,77 @@ header.masthead h1 {
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+/* Drop Down Styles
+================================ */
+.dm-title {
+  font-family: Roboto;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  font-weight: 200px;
+}
+
+
+li {
+  list-style-type: none;
+}
+
+.container-dm {
+  width: 250px;
+  margin: 50px auto;
+  border: 1px #d3d3d3 solid;
+}
+.container-dm > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drop-down {
+  color: #9800c3;
+  font-size: 16px;
+  list-style: none;
+  overflow: hidden; /* When ul height is reduced, ensure overflowing li are not shown */
+  height: 140px; /* 172px = (38 (li) + 5 (li border)) * 4 (number of li) */
+  background-color: white;
+  font-family: Roboto;
+  width: auto;
+  margin: 0 auto;
+  padding: 0;
+  -webkit-transition: height 0.3s ease;
+          transition: height 0.3s ease;
+  border-top: 1px #d3d3d3 solid;
+  border-bottom: 1px #d3d3d3 solid;
+  font-weight: 200px;
+}
+
+.drop-down.closed {
+  /*  When toggled via jQuery this class will reduce the height of the ul which inconjuction
+      with overflow: hidden set on the ul will hide all list items apart from the first */
+  /* current li height 38px + 5px border */
+  height: 43px;
+}
+
+.drop-down li {
+  border-bottom: 5px solid #ffffff;
+}
+
+.drop-down li a {
+  display: block;
+  color: #9800c3;
+  padding: 10px; /* Larger touch target area */
+}
+
+.under {
+  padding-left: 20px;
+}
+
+.drop-down li:first-child a:after {
+  content: "\25BC";
+  float: right;
+  margin-left: -30px; /* Excessive -margin to bring link text back to center */
+  margin-right: 5px;
 }
