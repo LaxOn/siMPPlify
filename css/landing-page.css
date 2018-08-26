@@ -489,3 +489,7 @@ body {
   display: none;
   visibility: hidden;
 }
+
+.issue-image {
+  width: 300px;
+}
