@@ -16,7 +16,7 @@ h6 {
 
 header.masthead {
   position: relative;
-  background-color: #343a40;
+  background-color: #fffaee;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -27,7 +27,7 @@ header.masthead {
 
 header.masthead .overlay {
   position: absolute;
-  background-color: #212529;
+  background-color: #fffaee;
   height: 100%;
   width: 100%;
   top: 0;
@@ -124,11 +124,16 @@ header.masthead h1 {
   font-family: "Roboto","Arial";
   font-size: 40px;
   color: #ffa300;
+  margin-top: 40px;
 }
 
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+#issues {
+  text-align: center
 }
 
 .dm-title {
@@ -139,7 +144,6 @@ footer.footer {
   padding-left: 10px;
   font-weight: 200px;
 }
-
 
 li {
   list-style-type: none;
@@ -203,6 +207,11 @@ li {
   margin-right: 5px;
 }
 
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 .right-inner-addon i {
     position: absolute;
     right: 0px;
@@ -214,14 +223,15 @@ li {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Regular'),
-       local('Roboto-Regular'),
-       url(http://themes.googleusercontent.com/static/fonts/roboto/v11/2UX7WLTfW3W8TclTUvlFyQ.woff)
+  src: local('Roboto Regular'), 
+       local('Roboto-Regular'), 
+       url(http://themes.googleusercontent.com/static/fonts/roboto/v11/2UX7WLTfW3W8TclTUvlFyQ.woff) 
        format('woff');
 }
 
 .nav-item {
   font-family: Roboto;
+  font-size: 17px;
 }
 
 .nav-logo {
@@ -249,6 +259,53 @@ li {
   color: grey;
 }
 
+.button-background {
+  width: 160px;
+  height: 47px;
+  border-radius: 39px;
+  background-color: #9800c3;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+  color: white;
+  margin-right: 15px;
+}
+
+.column {
+    float: left;
+    width: 20%;
+    background-color: #ddd;
+    padding: 10px;
+    height: 340px;
+    box-sizing: : border-box;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container {
+  margin-left: 190px;
+}
+
+#title-page-summary {
+  margin-top: 20%;
+}
+
+#summary {
+  font-size: 26px;
+}
+
+#issues-row {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 body {
   background-color: #ffffff;
 }
+
