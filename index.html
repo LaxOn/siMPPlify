@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>siMPPlify</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,11 +27,20 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <a class="btn btn-primary" href="#">Sign In</a>
-      </div>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img class="nav-logo" src="img/logo.png">
+      </a>
+        <div class="navbar-nav">
+          <!-- Search form -->
+          <form class="form-inline">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+          </form>
+          <a class="nav-item nav-link nav-buttons" href="#">About</a>
+          <a class="nav-item nav-link nav-buttons" href="#">Bills</a>
+          <a class="nav-item nav-link nav-buttons" href="#">Contact</a>
+        </div>
     </nav>
 
     <!-- Masthead -->
