@@ -149,6 +149,7 @@ li {
   width: 250px;
   margin: 50px auto;
   border: 1px #d3d3d3 solid;
+  background-color: white;
 }
 .container-dm > ul {
   list-style: none;
@@ -246,4 +247,8 @@ li {
 
 .fa {
   color: grey;
+}
+
+body {
+  background-color: #fffaee;
 }
