@@ -224,9 +224,9 @@ footer.footer {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Regular'), 
-       local('Roboto-Regular'), 
-       url(http://themes.googleusercontent.com/static/fonts/roboto/v11/2UX7WLTfW3W8TclTUvlFyQ.woff) 
+  src: local('Roboto Regular'),
+       local('Roboto-Regular'),
+       url(http://themes.googleusercontent.com/static/fonts/roboto/v11/2UX7WLTfW3W8TclTUvlFyQ.woff)
        format('woff');
 }
 
@@ -315,7 +315,7 @@ body {
 }
 
 #take-action-title{
-  text-align: center; 
+  text-align: center;
 }
 
 .crop {
@@ -427,6 +427,52 @@ body {
 #mpp{
 
   margin: 0 auto;
+}
+
+#progressBar {
+  height: 450px;
+}
+
+.bill-title{
+  font-family: "Roboto";
+  font-size:40px;
+  font-weight:100;
+}
+
+.long-title{
+  font-family: "Roboto";
+  font-size:20px;
+  font-weight:100;
+  text-align: justify;
+}
+
+.bill-summary{
+
+  font-family: "Roboto";
+  text-align: justify;
+}
+
+.issue-details{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.reading-stage{
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 200;
+  margin-top: 30px;
+}
+
+.agree-or-disagree{
+  background-color: #fffaee;
+  padding: 20px;
+}
+
+#agree-or-disagree{
+  font-family: "Roboto";
+  font-size:25px;
+  font-weight: 200;
 }
 
 .submit-btn{
