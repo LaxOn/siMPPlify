@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>siMPPlify</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-color">
+      <a class="navbar-brand" href="#">
+        <img class="nav-logo" src="img/logo.png">
+      </a>
+        <div class="navbar-nav">
+          <!-- Search form -->
+          <form class="form-inline">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+          </form>
+          <a class="nav-item nav-link nav-buttons" href="#">About</a>
+          <a class="nav-item nav-link nav-buttons" href="#">Bills</a>
+          <a class="nav-item nav-link nav-buttons" href="#">Contact</a>
+        </div>
+    </nav>
+
+    <section class="issue-details">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1">
+            <img id="progressBar" src="img/progress-bar.png">
+          </div>
+          <div class="col-md-10">
+            <h1 class="bill-title">Cap and Trade Cancellation Act</h1>
+            <img src="img/tags.png">
+            <h2 class="long-title">An Act respecting the preparation of a climate change plan, providing for the wind down of the cap and trade program and repealing the Climate Change Mitigation and Low-carbon Economy Act, 2016</h2>
+            <p class="bill-summary">The Bill sets out the Cap and Trade Cancellation Act, 2018, which repeals the Climate Change Mitigation and Low-carbon Economy Act, 2016 and provides for various matters related to the wind down of the Cap and Trade Program. Under the Cap and Trade Cancellation Act, 2018, the Government is required to establish targets for reducing the amount of greenhouse gas emissions in Ontario.  The Minister of Environment, Conservation and Parks is required to prepare a climate change plan and to prepare progress reports in respect of the plan. <a href="https://www.ola.org/en/legislative-business/bills/parliament-42/session-1/bill-4">(Learn more...)</a></p>
+            <p class="reading-stage">Stage: First Reading</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="agree-or-disagree">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p id="agree-or-disagree">Do you agree or disagree with this Act?</p>
+          </div>
+          <div class = "col-md-6">
+            <button type="button" class="button-background">Agree</button>
+            <button type="button" class="button-background">Disagree</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item">
+                <a href="#">About</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Contact</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+            </ul>
+            <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item mr-3">
+                <a href="#">
+                  <i class="fa fa-facebook fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mr-3">
+                <a href="#">
+                  <i class="fa fa-twitter fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-instagram fa-2x fa-fw"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(function() {
+      // Bind Click event to the drop down navigation button
+      $(".nav-button").click(function() {
+        /*  Toggle the CSS closed class which reduces the height of the UL thus
+            hiding all LI apart from the first */
+        $(this).parent().parent().toggleClass("closed");
+      });
+
+      });
+
+    </script>
+
+  </body>
+
+</html>
