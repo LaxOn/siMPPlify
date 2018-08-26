@@ -161,7 +161,7 @@
       <div class="col-lg-2"></div>
       <div class="col-lg-6" >
         <div class="mpp-form-text">
-          <div class="mpp-custom-text">Didn't find the issue you're looking for. Craft your own message to your local Member of Provincial Parliament (MPP) to bring issues to their attention.</div>
+          <div class="mpp-custom-text">Didn't find the issue you're looking for? Craft your own message to your local Member of Provincial Parliament (MPP) to bring issues to their attention.</div>
           <div class="mpp-custom-text">Your voice matters!</div>
 
           <label id="client-name-label" class="take-action-box-label">Name</label><br>
@@ -196,12 +196,12 @@
      <div class="col-lg-2"></div>
      <div class="col-lg-8">
       <!-- changes -->
-      <label id="custom-email-guide">Dear MP, I'm a small business owner of construction materials in the GTA. I'm concerned about how tariffs will impact trade across the border and the cost of goods...</label>
+      <label id="custom-email-guide">Dear MPP, I'm a small business owner of construction materials in the GTA. I'm concerned about how tariffs will impact trade across the border and the cost of goods...</label>
     </div>
     <div class="col-lg-2"></div>
   </div>
   <div class="submit-btn">
-    <button type="button" class="button-background" data-toggle="modal" data-target="#submitModal">Submit</button>
+    <button type="button" class="button-background" data-toggle="modal" data-target="#submitModal" onclick="submitEmail()">Submit</button>
   </div>
   </div>
 
@@ -282,6 +282,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="nodemailer.js"></script>
   <script>
     $(function() {
       // Bind Click event to the drop down navigation button
@@ -292,9 +293,29 @@
       });
 
     });
-
   </script>
 
+<script type="text/javaScript">
+  function submitEmail(){
+    let name = document.getElementById("mppName").innerHTML;
+    let fullName = name.split(',')[0];
+    let cName = document.getElementById("client-name").value;
+    let cEmail = document.getElementById("client-email").value;
+    let cMessage = document.getElementById("custom-email").value;
+    let emailInfo = {
+      isApprove: 0,
+      isCustom:0,
+      mppName: fullName,
+      billLongName: "An Act respecting the preparation of a climate change plan, providing for the wind down of the cap and trade program and repealing the Climate Change Mitigation and Low-carbon Economy Act, 2016",
+      billShortName: "Cap and Trade Cancellation Act",
+      clientName: cName,
+      clientEmail: cEmail,
+      mppEmail:"simpplify.ca@gmail.com",
+      text: cMessage  
+    }
+    sendMailTo(emailInfo);
+  }
+</script>
 </body>
 
 </html>

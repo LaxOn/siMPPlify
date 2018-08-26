@@ -42,6 +42,8 @@ function sendMailTo(info) {
     });
 }
 
+module.exports = {getEmailTemplate,sendMailTo}
+
 
 //isNotCustom
 // we populate the message with the replacements
