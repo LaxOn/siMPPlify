@@ -5,31 +5,15 @@ const nodemailer = require('nodemailer');
 const approveTemplate = require("./approveTemplate.js")
 const disapproveTemplate = require("./disapproveTemplate.js")
 
-function getEmailBody(info) {
-    
+function getEmailTemplate(info) {
     let template = ""
     if (info.isApprove === 1) template = approveTemplate
     else template = disapproveTemplate
-    // console.log(template)
-    let resultEmail = template.replace("<mppName>",info.mppName)
+    let resultTemplate = template.replace("<mppName>",info.mppName)
                         .replace("<billLongName>",info.billLongName)
                         .replace("<billShortName>",info.billShortName)
-                        .replace("<reasons>",info.reasons)
                         .replace("<clientName>",info.clientName)
-
-    if ("address" in info) resultEmail = resultEmail.replace("<address>",info.address)
-    else resultEmail = resultEmail.replace("<address>","")
-
-    if ("phone" in info) resultEmail = resultEmail.replace("<phone>",info.phone)
-    else resultEmail = resultEmail.replace("<phone>","")
-
-    if ("flaws" in info) resultEmail = resultEmail.replace("<flaws>",info.flaws)
-    else resultEmail = resultEmail.replace("<flaws>","")
-
-    if ("recommendations" in info) resultEmail = resultEmail.replace("<recommendations>",info.recommendations)
-    else resultEmail = resultEmail.replace("<recommendations>","")
-
-    return resultEmail
+    return resultTemplate
 
 }
 
@@ -50,7 +34,7 @@ function sendMailTo(info) {
         replyTo: info.clientEmail,
         to: info.mppEmail,
         subject: info.isApprove ? "Support " + info.billShortName : "Do not support " + info.billShortName,
-        text: getEmailBody(info),
+        text: info.text,
     }
 
     transporter.sendMail(mailOptions).catch((err)=> {
@@ -58,19 +42,24 @@ function sendMailTo(info) {
     });
 }
 
-let info2 ={
-    isApprove: 0,
-    mppName: "Bryan L.",
-    billLongName: "Bill to delegalize Zebra Mussel",
-    billShortName: "Bill Zebra Mussel",
-    reasons: "I don't like it",
-    clientName: "Client 1",
-    clientEmail: "brmlacso@edu.uwaterloo.ca",
-    address:"100 Middle of Nowhere dr.",
-    phone:"416-666-6666",
-    flaws:"it's flawed",
-    recommendations:"help",
-    mppEmail:"democracyyey@gmail.com",
-}
 
-sendMailTo(info2);
+//isNotCustom
+// we populate the message with the replacements
+// we send when submit
+
+//isCustom
+// send it 
+
+// let info ={
+//     isApprove: 0,
+//     isCustom:0,
+//     mppName: "Bryan L.",
+//     billLongName: "Bill to delegalize Zebra Mussel",
+//     billShortName: "Bill Zebra Mussel",
+//     clientName: "Client 1",
+//     clientEmail: "brmlacso@edu.uwaterloo.ca",
+//     mppEmail:"democracyyey@gmail.com",
+//     text: "textarea value"
+// }
+
+// sendMailTo(info2);
