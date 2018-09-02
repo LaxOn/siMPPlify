@@ -1,4 +1,4 @@
-<img align="center" src="/img/logo.svg" />
+<img align="center" src="/img/logo.png" />
 
 **3rd prize project for [Hack The 6ix](https://hackthe6ix.com) in September 2018 at Toronto, Canada**
 
