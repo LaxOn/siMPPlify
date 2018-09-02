@@ -1,4 +1,4 @@
-# siMPPlify
+<img align="center" src="/img/logo.svg" />
 
 **3rd prize project for [Hack The 6ix](https://hackthe6ix.com) in September 2018 at Toronto, Canada**
 
