@@ -1,7 +1,7 @@
 <div style="text-align:center"><img src="/img/logo.png" /></div>
 
 # siMMPlify
-### _3rd prize project for [Hack The 6ix](https://hackthe6ix.com) in September 2018 at Toronto, Canada_
+### _3rd prize project for [Hack The 6ix](https://hackthe6ix2018.devpost.com/) in September 2018 at Toronto, Canada_
 A web app that helps the average person voice their positions to current bills being debated at the Ontario House of Commons by conveniently emailing their corresponding MPPs and providing an approval or disapproval template email of the bill for them to send.
 
 siMPPlify geolocates the user to provide them information on their MPP. It also allows one to research issues and quickly generate a draft email, which one can send from the website to the MPP. The goal is to be able to do this in five minutes! Never have the barriers to participating in a democracy been lower.
